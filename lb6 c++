@@ -1,0 +1,94 @@
+завдання 1
+#include <iostream> using namespace std;
+
+int main() {
+    long long c0; 
+    int steps = 0; 
+    cout << "Введіть натуральне число c0: ";
+    cin >> c0; 
+    if (c0 <= 0) {
+          return 0;
+    }
+
+     while (c0 != 1) {
+        if (c0 % 2 == 0) {         
+            c0 = c0 / 2;
+        } else {                    
+            c0 = 3 * c0 + 1;
+        }
+        cout << c0 << endl;         
+        steps++;                   
+    }
+    cout << "steps = " << steps << endl;
+
+    return 0;
+}
+
+завдання 2
+#include <iostream>   
+#include <iomanip>     
+using namespace std;
+
+int main(void) {
+    double pi4 = 0.0;  
+    long n;            // кіл-сть ітерацій
+
+    cout << "Number of iterations: ";
+    cin >> n;        
+    for (long i = 0; i < n; i++) {
+       
+        if (i % 2 == 0) {
+            pi4 = pi4 + 1.0 / (2 * i + 1);
+        } else {
+            pi4 = pi4 - 1.0 / (2 * i + 1);
+        }
+    }
+
+    cout.precision(20);
+
+    cout << "Pi = " << (pi4 * 4.0) << endl;
+
+    return 0; 
+}
+
+завдання 3 
+#include <iostream>   
+using namespace std;
+
+int main() {
+    int n; 
+
+    cout << "Введіть розмір ";
+    cin >> n;
+
+    if (n <= 1) {
+        cout << "Значення повинно бути більше 1" << endl;
+        return 0;
+    }
+    if (n > 100) {
+        cout << "Занадто велике значення" << endl;
+        return 0;
+    }
+
+    cout << '+';
+    for (int i = 0; i < n; i++) {
+        cout << '-';
+    }
+    cout << '+' << endl;
+
+    for (int i = 0; i < n; i++) {
+        cout << '|';         
+        for (int j = 0; j < n; j++) {
+            cout << ' ';       
+        }
+        cout << '|' << endl;   
+    }
+    cout << '+';
+    for (int i = 0; i < n; i++) {
+        cout << '-';
+    }
+    cout << '+' << endl;
+
+    return 0; 
+}
+
