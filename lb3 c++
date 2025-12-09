@@ -1,1 +1,45 @@
+#include <iostream>
+#include <cctype>
+#include <string>
+using namespace std;
+
+int main() {
+    cout << "Choose a country by the first letter of its name:\n";
+    cout << "U - Ukraine\n";
+    cout << "F - France\n";
+    cout << "G - Germany\n";
+    cout << "I - Italy\n";
+    cout << "S - Spain\n";
+    cout << "C - Canada\n";
+    cout << "J - Japan\n\n";
+
+    char ch;
+    cout << "Enter a letter: ";
+    cin >> ch;
+
+    ch = toupper(static_cast<unsigned char>(ch));
+
+    string country, capital;
+    long long population = 0;
+
+    switch (ch) {
+        case 'U': country = "Ukraine"; capital = "Kyiv"; population = 41000000; break;
+        case 'F': country = "France"; capital = "Paris"; population = 67000000; break;
+        case 'G': country = "Germany"; capital = "Berlin"; population = 83000000; break;
+        case 'I': country = "Italy"; capital = "Rome"; population = 59000000; break;
+        case 'S': country = "Spain"; capital = "Madrid"; population = 47000000; break;
+        case 'C': country = "Canada"; capital = "Ottawa"; population = 38000000; break;
+        case 'J': country = "Japan"; capital = "Tokyo"; population = 125000000; break;
+        default:
+            cout << "Error: no country with that letter.\n";
+            return 0;
+    }
+
+    cout << "\nCountry: " << country << endl;
+    cout << "Capital: " << capital << endl;
+    cout << "Population: " << population << endl;
+
+    return 0;
+}
+
 
