@@ -1,0 +1,230 @@
+1)
+#include <iostream>    
+using namespace std;    
+int main() {
+
+    const int m = 4;     
+    const int n = 3;     
+
+    int arr[m][n];      
+
+    cout << "Введіть елементи масиву 4x3:\n";
+    for (int i = 0; i < m; i++) {        
+        for (int j = 0; j < n; j++) {      
+           cin >> arr[i][j];              
+        }
+    }
+
+  
+    for (int i = 0; i < m; i++) {       
+        int evenCount = 0;                
+
+        for (int j = 0; j < n; j++) {      
+            if (arr[i][j] % 2 == 0) {      
+                evenCount++;               
+            }
+        }
+
+        
+        cout << "Парних чисел у рядку " << i << ": " << evenCount << endl;
+    }
+}
+2)
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    const int m = 6;   
+    const int n = 4;  
+
+    int arr[m][n];  
+
+    cout << "Введіть елементи масиву 6x4:\n";
+    for (int i = 0; i < m; i++) {       
+        for (int j = 0; j < n; j++) {     
+            cin >> arr[i][j];                     }
+    }
+
+   
+    for (int j = 0; j < n; j++) {         
+        int evenCount = 0;               
+
+        for (int i = 0; i < m; i++) {    
+            if (arr[i][j] % 2 == 0) {     
+                evenCount++;               
+            }
+        }
+
+        cout << "Парних чисел у стовпчику " << j << ": " << evenCount << endl;
+    }
+
+    return 0;
+}
+
+3)
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    const int m = 5;  
+    const int n = 7;   
+
+    int arr[m][n];     
+
+    cout << "Введіть елементи масиву 5x7:\n";
+    for (int i = 0; i < m; i++) {          
+        for (int j = 0; j < n; j++) {     
+            cin >> arr[i][j];              
+        }
+    }
+
+      for (int i = 0; i < m; i++) {        
+        int sum = 0;                  
+
+     for (int j = 0; j < n; j++) {      
+            sum += arr[i][j];            
+        }
+
+        cout << "Сума елементів у рядку " << i << ": " << sum << endl;
+    }
+
+    return 0;
+}
+
+4) 
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    const int m = 4;   
+    const int n = 6; 
+
+    int arr[m][n];    
+
+    cout << "Введіть елементи масиву 4x6:\n";
+    for (int i = 0; i < m; i++) {          
+    for (int j = 0; j < n; j++) {      
+            cin >> arr[i][j];              
+        }
+    }
+
+    for (int j = 0; j < n; j++) {         
+        int sum = 0;                       
+
+        for (int i = 0; i < m; i++) {      
+            sum += arr[i][j];             
+        }
+
+     
+        cout << "Сума елементів у стовпчику " << j << ": " << sum << endl;
+    }
+
+    return 0;
+}
+
+5)
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    const int m = 3;  
+    const int n = 4;   
+
+    int arr[m][n];     
+
+    cout << "Введіть елементи масиву 3x4:\n";
+    for (int i = 0; i < m; i++) {       
+        for (int j = 0; j < n; j++) {    
+            cin >> arr[i][j];        
+        }
+    }
+    int maxVal = arr[0][0];  
+    int maxRow = 0;         
+    int maxCol = 0;           
+
+    for (int i = 0; i < m; i++) {          
+        for (int j = 0; j < n; j++) {
+            if (arr[i][j] > maxVal) {     
+                maxVal = arr[i][j];        
+                maxRow = i;               
+                maxCol = j;              
+            }
+        }
+    }
+
+    cout << "Максимальний елемент: " << maxVal << endl;
+    cout << "рядок " << maxRow << ", стовпець " << maxCol << endl;
+
+    return 0;
+}
+
+6)  
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    const int m = 4;  
+    const int n = 7;   
+
+    int arr[m][n];   
+
+    cout << "Введіть елементи масиву 4x7:\n";
+    for (int i = 0; i < m; i++) {         
+        for (int j = 0; j < n; j++) {      
+            cin >> arr[i][j];           
+        }
+    }
+
+    int minVal = arr[0][0];   
+    int minRow = 0;      
+    int minCol = 0;     
+
+    for (int i = 0; i < m; i++) {          
+        for (int j = 0; j < n; j++) {
+            if (arr[i][j] < minVal) {    
+                minVal = arr[i][j];  
+                minRow = i;             
+                minCol = j;                   
+       }
+        }
+    }
+
+    cout << "Мінімальний елемент: " << minVal << endl;
+    cout <<  рядок " << minRow
+         << ", стовпець " << minCol << endl;
+
+    return 0;
+}
+15)
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int m = 3, n = 3;
+    int arr[m][n];
+
+    cout << "Введіть елементи масиву:\n";
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> arr[i][j];
+        }
+    }
+    int mainDiagonal = 0;    
+    int sideDiagonal = 0;    
+
+    for (int i = 0; i < m; i++) {
+        mainDiagonal += arr[i][i];        
+        sideDiagonal += arr[i][n - 1 - i]; 
+    }
+
+    cout << "Сума головної діагоналі: " << mainDiagonal << endl;
+    cout << "Сума бічної діагоналі: " << sideDiagonal << endl;
+
+    return 0;
+}
+
