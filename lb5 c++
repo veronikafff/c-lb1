@@ -1,0 +1,68 @@
+завдання 1
+#include <iostream>  
+#include <cmath>    
+using namespace std;
+int main() {
+    double x, y; 
+    for (int i = 1; i <= 5; i++) {
+        cout << "Введіть x" << i << ": ";
+        cin >> x; 
+        y = pow(sin(x), 5) + fabs(5 * x - 1.5);
+        cout << "Для x = " << x << " значення y = " << y << endl;
+    }
+
+    return 0;
+}
+
+завдання 2
+#include <iostream>  
+using namespace std;
+
+int main() {
+    int sum = 0; 
+    for (int i = 1; i <= 25; i++) {
+        sum = sum + i * i; 
+    }
+    cout << "Сума квадратів чисел від 1 до 25 = " << sum << endl;
+
+    return 0;
+}
+
+завдання 3 
+
+
+#include <iostream> 
+#include <cmath>     
+using namespace std;
+
+int main() {
+    double a, b, h; 
+        double x, y; 
+    cout << "Введіть початок відрізку a: ";
+    cin >> a;
+    cout << "Введіть кінець відрізку b: ";
+    cin >> b;
+    cout << "Введіть крок h: ";
+    cin >> h;
+
+    cout << "-------------------------" << endl;
+    cout << ":   X   :     Y         :" << endl;
+    cout << "-------------------------" << endl;
+     x = a; 
+    while (x <= b) {
+     if (-x + 6 < 0) {
+            cout << ": " << x << " :  не належить ОДЗ  :" << endl;
+            break;
+        } else {
+            y = 5 * pow(x, 3) + sqrt(-x + 6);
+            cout << ": " << x << " : " << y << " :" << endl;
+        }
+        x += h;
+    }
+
+    cout << "-------------------------" << endl;
+    cout << "Табулювання завершено." << endl;
+
+    return 0;
+}
+
