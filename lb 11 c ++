@@ -1,0 +1,112 @@
+#include <iostream>   
+#include <iomanip>  
+using namespace std;
+
+struct Date {
+    int hours;   
+    int minutes; 
+};
+
+bool isValidTime(const Date& t) {
+    return (t.hours >= 0 && t.hours < 24 &&
+            t.minutes >= 0 && t.minutes < 60);
+}
+
+void addMinutes(Date& t, int add) {
+    int totalMinutes = t.hours * 60 + t.minutes + add; 
+
+    totalMinutes %= (24 * 60);
+    if (totalMinutes < 0) {           
+        totalMinutes += 24 * 60;
+    }
+
+    t.hours = totalMinutes / 60;      
+    t.minutes = totalMinutes % 60;    
+}
+
+int main() {
+    Date time;           
+    int extraMinutes;     
+
+    cout << "Введiть години: ";
+    cin >> time.hours;
+
+    cout << "Введiть хвилини: ";
+    cin >> time.minutes;
+
+    cout << "Введiть кiлькiсть хвилин, що пройшли: ";
+    cin >> extraMinutes;
+
+    if (!isValidTime(time)) {
+        cout << "некоректний час (години < 24, хвилини < 60)." << endl;
+        return 0;
+    }
+
+    addMinutes(time, extraMinutes);
+
+    cout << "Новий час: "
+         << setw(2) << setfill('0') << time.hours << ":"
+         << setw(2) << setfill('0') << time.minutes << endl;
+
+    return 0;
+}
+
+ задача 2
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+struct Date {
+    int hours;
+    int minutes;
+};
+
+bool isValidTime(const Date& t) {
+    return (t.hours >= 0 && t.hours < 24 &&
+            t.minutes >= 0 && t.minutes < 60);
+}
+
+Date duration(const Date& start, const Date& end) {
+
+    int startMin = start.hours * 60 + start.minutes;
+    int endMin   = end.hours * 60 + end.minutes;
+
+    int diff = endMin - startMin;
+
+    if (diff < 0) {
+        diff += 24 * 60;
+    }
+
+    Date result;
+    result.hours = diff / 60;
+    result.minutes = diff % 60;
+
+    return result;
+}
+
+int main() {
+    Date start, finish;
+
+    cout << " час початку: ";
+    cin >> start.hours >> start.minutes;
+
+    cout << " час закiнчення : ";
+    cin >> finish.hours >> finish.minutes;
+
+    if (!isValidTime(start) || !isValidTime(finish)) {
+        cout << " некоректний час (години < 24, хвилини < 60)." << endl;
+        return 0;
+    }
+
+    Date dur = duration(start, finish);
+
+    cout << "Тривалiсть подiї: "
+         << dur.hours << ":" << setw(2) << setfill('0') << dur.minutes << endl;
+
+    return 0;
+}
+
+
+
